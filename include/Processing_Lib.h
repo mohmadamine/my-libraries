@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace math_lib
+namespace processing_numbers
 {
 int reversed_number(int number){
 short remainder = 0;
