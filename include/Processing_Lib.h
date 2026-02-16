@@ -1,6 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include "generation_lib.h"
+#include "check_lib.h"
+#include <cmath>
 
 using namespace std;
 
@@ -136,4 +139,147 @@ namespace processing_lib
         }
         return text;
     }
+
+    int sum_numbers_with_array(int arr[100], int arr_length)
+    {
+        int sum = 0;
+        for (int i = 0; i < arr_length; i++)
+        {
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    float average_number_with_array(int arr[100], int arr_length)
+    {
+        return float(sum_numbers_with_array(arr, arr_length)) / arr_length;
+    }
+
+    void copy_array(int arr_source[100], int arr_copy[100], int arr_length)
+    {
+
+        for (int i = 0; i < arr_length; i++)
+        {
+            arr_copy[i] = arr_source[i];
+        }
+    }
+
+    void sum_of_2_arrays(int arr[100], int arr2[100], int sum_arrays[100], int arr_length)
+    {
+
+        for (int i = 0; i < arr_length; i++)
+        {
+            sum_arrays[i] = arr[i] + arr2[i];
+        }
+    }
+
+    void swap(int &num1, int &num2)
+    {
+        int box;
+        box = num2;
+        num2 = num1;
+        num1 = box;
+    }
+
+    void shuffle_array(int arr[100], int arr_length)
+    {
+        for (int i = 0; i < arr_length; i++)
+        {
+            swap(arr[generation_lib::random(1, arr_length) - 1], arr[generation_lib::random(1, arr_length) - 1]);
+        }
+    }
+
+    void copy_array_in_reversed_order(int arr_source[100], int arr_copy[100], int arr_length)
+    {
+        for (int i = 0; i < arr_length; i++)
+        {
+            arr_copy[i] = arr_source[arr_length - 1 - i];
+        }
+    }
+
+    void copy_array_using_add_array_elements(int arr_source[100], int arr_copy[100], int arr_length, int arr2_length)
+    {
+
+        for (int i = 0; i < arr_length; i++)
+        {
+            generation_lib::add_array_element(arr_source[i], arr_copy, arr2_length);
+        }
+    }
+
+    float my_abs(int number)
+    {
+        if (number < 0)
+        {
+            return number * -1;
+        }
+        else
+        {
+            return number;
+        }
+    }
+
+    float get_fraction_part(float number)
+    {
+        return number - int(number);
+    }
+
+    float my_round(float number)
+    {
+        int intpart = int(number);
+        float fraction_part = get_fraction_part(number);
+        if (abs(fraction_part) >= .5)
+        {
+            if (number > 0)
+            {
+                return ++intpart;
+            }
+            else
+            {
+                return --intpart;
+            }
+        }
+        else
+        {
+            return intpart;
+        }
+    }
+    int my_floor(float number)
+    {
+        int intpart = int(number);
+        if (number > 0)
+        {
+            return intpart;
+        }
+        else
+        {
+            return --intpart;
+        }
+    }
+
+    int my_ceil(float number)
+    {
+        float fraction_part = get_fraction_part(number);
+        if (abs(fraction_part) > 0)
+        {
+            if (number > 0)
+            {
+                return number + 1;
+            }
+            else
+            {
+                return number;
+            }
+        }
+        else
+        {
+            return number;
+        }
+    }
+
+    float my_sqrt(float number)
+    {
+
+        return pow(number, 0.5);
+    }
+
 }

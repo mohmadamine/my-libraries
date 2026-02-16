@@ -1,6 +1,7 @@
 #pragma once
 
 #include<iostream>
+#include"generation_lib.h"
 
 using namespace std;
 
@@ -42,6 +43,19 @@ void read_array(int arr[100],int &arr_length){
     }
     cout<<endl;
 
+}
+
+void input_user_in_array(int arr[100], int &arr_length)
+{
+    bool addmore = true;
+
+    do
+    {
+        generation_lib::add_array_element(read_lib::read_positive_number("please enter a positiv number to add to the array : "), arr, arr_length);
+        cout << "\ndo you want to add more number (Yes[1] or No[0]) : ";
+        cin >> addmore;
+    } while (addmore);
+    cout << endl;
 }
 
 } 

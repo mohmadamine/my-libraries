@@ -2,9 +2,11 @@
 
 #include <iostream>
 #include <cmath>
-#include "Processing_Lib.h"
+#include"Processing_lib.h"
+#include"data_analyzer.h"
 
 using namespace std;
+
 
 namespace check_lib
 {
@@ -47,9 +49,23 @@ namespace check_lib
 
 
 
-  bool check_number_is_palindrome_or_not(int number)
-  {
-    return number == processing_numbers::reversed_number(number);
-  }
+
+
+ bool is_number_found_in_array(int arr[100], int arr_length, int number)
+{
+   return data_analyzer::find_number_position_in_array(arr, arr_length, number) != -1;
+}
+
+bool check_array_is_palindrome_or_not(int arr[100],int arr_length){
+    for(int i =0;i<arr_length;i++){
+        if(arr[i]!=arr[arr_length-i-1]){
+      
+        return false;
+        }
+
+    }
+       return true;
+       
+}
 
 }

@@ -73,4 +73,46 @@ void generate_keys(short number_of_keys)
     }
 }
 
+void fill_array_with_random_number(int arr[100],int &arr_length){
+    cout<<"please enter number of array : ";
+    cin>>arr_length;
+for(int i =0;i<arr_length;i++){
+arr[i] = generation_lib::random(1,100);
+}
+}
+
+    void fill_order_number_in_array(int arr[100], int arr_length)
+    {
+        for (int i = 0; i < arr_length; i++)
+        {
+            arr[i] = i + 1;
+        }
+    }
+
+    void fill_array_with_keys(string arr[100], int arr_length)
+{
+
+    for (int i = 0; i < arr_length; i++)
+    {
+        arr[i] = generate_key();
+    }
+}
+
+void add_array_element(int number, int arr[100], int &arr_length)
+{
+    arr_length++;
+    arr[arr_length - 1] = number;
+}
+
+    void copy_odd_numbers(int arr[100], int odd_numbers_in_arr2[100], int arr_length, int &arr2_length)
+    {
+        for (int i = 0; i < arr_length; i++)
+        {
+            if (arr[i] % 2 != 0)
+            {
+               add_array_element(arr[i], odd_numbers_in_arr2, arr2_length);
+            }
+        }
+    }
+
 }
