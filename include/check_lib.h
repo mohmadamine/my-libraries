@@ -68,4 +68,16 @@ bool check_array_is_palindrome_or_not(int arr[100],int arr_length){
        
 }
 
+string get_final_result(bool ispass)
+{
+    if (ispass)
+    {
+        return "pass -)";
+    }
+    else
+    {
+        return "fail (-";
+    }
+}
+
 }
